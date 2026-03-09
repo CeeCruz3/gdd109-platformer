@@ -10,4 +10,5 @@ Most assets will be made by me, though I am unsure how well that'd pan out. Diff
 ## Credits:
  Background assets taken from Paper Conquest Asset pack by BlackSid. https://blacksid.itch.io/paper-conquest-asset
  Project backbone and floor asset taken from Adam Graham's dino game tutorial. https://github.com/zigurous/unity-dino-game-tutorial
+ Character paper textures taken from Paper Texture pack by Odds & Ents. https://oddsandents.itch.io/paper-texture-pack
  Character sprite and collectable sprite drawn by me :^]
