@@ -8,7 +8,8 @@ The current plan is to get the backbone of the project working, then encode coll
 Most assets will be made by me, though I am unsure how well that'd pan out. Difficulty will be determined by time, and some obstacle patterns will be added as the difficulty progresses.
 
 ## Credits:
- Background assets taken from Paper Conquest Asset pack by BlackSid. https://blacksid.itch.io/paper-conquest-asset
+ Background, obstacle, and particle assets taken from Paper Conquest Asset pack by BlackSid. https://blacksid.itch.io/paper-conquest-asset
  Project backbone and floor asset taken from Adam Graham's dino game tutorial. https://github.com/zigurous/unity-dino-game-tutorial
- Character paper textures taken from Paper Texture pack by Odds & Ents. https://oddsandents.itch.io/paper-texture-pack
+ Character paper textures taken from Paper Texture pack by Odds & Ents. https://oddsandents.itch.io/paper-texture-pack11
+ Paper tear and flip sounds from Reading & Writing Sound Pack by Leonardo Calvo. https://thesoundrack.itch.io/reading-writing-sound-pack
  Character sprite and collectable sprite drawn by me :^]
