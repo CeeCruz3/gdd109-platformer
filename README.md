@@ -12,4 +12,6 @@ Most assets will be made by me, though I am unsure how well that'd pan out. Diff
  Project backbone and floor asset taken from Adam Graham's dino game tutorial. https://github.com/zigurous/unity-dino-game-tutorial
  Character paper textures taken from Paper Texture pack by Odds & Ents. https://oddsandents.itch.io/paper-texture-pack11
  Paper tear and flip sounds from Reading & Writing Sound Pack by Leonardo Calvo. https://thesoundrack.itch.io/reading-writing-sound-pack
- Character sprite and collectable sprite drawn by me :^]
+ Character sprite, collectable sprite, and retry button drawn by me :^]
+ Collect sound by my mouth.
+ Mochibop font by StuArt Foundry. https://www.1001fonts.com/mochibop-font.html
