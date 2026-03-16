@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,10 +13,18 @@ public class GameManager : MonoBehaviour
     public float collectableScore = 50f;
     public float gameSpeed { get; private set; }
 
+    public float duration = 1f;
+    public AnimationCurve curve;
+    [SerializeField] private Camera cam;
+    [SerializeField] private GameObject camTarget;
+
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI hiscoreText;
     [SerializeField] private TextMeshProUGUI gameOverText;
     [SerializeField] private Button retryButton;
+    [SerializeField] private AudioSource death;
+    [SerializeField] private AudioSource flip;
+
 
     private Player player;
     private Spawner spawner;
@@ -42,7 +51,8 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         player = FindObjectOfType<Player>();
-        spawner = FindObjectOfType<Spawner>();
+        spawner = FindObjectOfType<Spawner>(); 
+
 
         NewGame();
     }
@@ -50,10 +60,15 @@ public class GameManager : MonoBehaviour
     public void NewGame()
     {
         Obstacle[] obstacles = FindObjectsOfType<Obstacle>();
+        Collectable[] collectables = FindObjectsOfType<Collectable>();
 
         foreach (var obstacle in obstacles)
         {
             Destroy(obstacle.gameObject);
+        }
+        foreach (var collectable in collectables)
+        {
+            Destroy(collectable.gameObject);
         }
 
 
@@ -66,21 +81,42 @@ public class GameManager : MonoBehaviour
         spawner.gameObject.SetActive(true);
         gameOverText.gameObject.SetActive(false);
         retryButton.gameObject.SetActive(false);
+        flip.Play();
 
         UpdateHiscore();
     }
 
     public void GameOver()
     {
+        death.Play();
         gameSpeed = 0f;
         enabled = false;
-
+        StartCoroutine(
+                routine: Shake(cam));
         player.gameObject.SetActive(false);
         spawner.gameObject.SetActive(false);
         gameOverText.gameObject.SetActive(true);
         retryButton.gameObject.SetActive(true);
 
         UpdateHiscore();
+    }
+
+    IEnumerator Shake(Camera cam)
+    {
+        
+        Vector2 startPos = camTarget.transform.position;
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            float strength = curve.Evaluate(elapsed / duration);
+            camTarget.transform.position = startPos + Random.insideUnitCircle * strength;
+            cam.transform.position = new Vector3(camTarget.transform.position.x, camTarget.transform.position.y, -10f);
+            yield return null;
+        }
+
+        cam.transform.position = new Vector3(startPos.x, startPos.y, -10f); ;
     }
 
     public void scoreUp()

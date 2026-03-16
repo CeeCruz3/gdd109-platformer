@@ -6,6 +6,10 @@ public class Player : MonoBehaviour
     private CharacterController character;
     private Vector3 direction;
 
+    [SerializeField] private AudioSource coin;
+    [SerializeField] private ParticleSystem particle;
+ 
+
     public float jumpForce = 8f;
     public float gravity = 9.81f * 2f;
 
@@ -42,6 +46,8 @@ public class Player : MonoBehaviour
         }
         else if (other.CompareTag("Collectable"))
         {
+            coin.Play();
+            particle.Emit(10);
             GameManager.Instance.scoreUp();
         }
     }
